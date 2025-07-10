@@ -6,7 +6,6 @@
 /recovery	emmc		/dev/block/bootdevice/by-name/recovery		flags=backup=1
 /vendor_boot	emmc		/dev/block/bootdevice/by-name/vendor_boot	flags=backup=1;flashimg=1;display="Vendor Boot"
 
-/system_dlkm	erofs		/dev/block/bootdevice/by-name/system_dlkm		flags=display="System DLKM"
 
 /cache		ext4		/dev/block/bootdevice/by-name/cache
 /efs		ext4		/dev/block/bootdevice/by-name/efs		flags=backup=1;display="EFS"
@@ -17,5 +16,4 @@
 /prism		ext4		/dev/block/bootdevice/by-name/prism		flags=backup=1;wipeingui;display="Prism"
 
 # Removable partitions
-/external_sd	auto		/dev/block/mmcblk0p1	/dev/block/mmcblk0	flags=storage;wipeingui;removable
 /usb-otg	auto		/dev/block/sdf1		/dev/block/sdf		flags=storage;wipeingui;removable

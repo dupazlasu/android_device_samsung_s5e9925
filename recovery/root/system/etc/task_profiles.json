@@ -16,6 +16,11 @@
       "File": "top-app/cpus"
     },
     {
+      "Name": "ForegroundBoostCapacityCPUs",
+      "Controller": "cpuset",
+      "File": "foreground-boost/cpus"
+    },
+    {
       "Name": "MemStats",
       "Controller": "memory",
       "File": "memory.stat"
@@ -83,22 +88,9 @@
       "File": "frozen/freezer.state"
     },
     {
-      "Name": "BfqWeight",
-      "Controller": "io",
-      "File": "blkio.bfq.weight",
-      "FileV2": "io.bfq.weight"
-    },
-    {
-      "Name": "CfqGroupIdle",
-      "Controller": "io",
-      "File": "blkio.group_idle",
-      "FileV2": "io.group_idle"
-    },
-    {
-      "Name": "CfqWeight",
-      "Controller": "io",
-      "File": "blkio.weight",
-      "FileV2": "io.weight"
+      "Name": "GpisSfCpuset",
+      "Controller": "cpuset",
+      "File": "cpus"
     },
     {
       "Name": "SlowdownState",
@@ -106,9 +98,9 @@
       "File": "abnormal/freezer.state"
     },
     {
-      "Name": "GpisSfCpuset",
-      "Controller": "cpuset",
-      "File": "cpus"
+      "Name": "OlafState",
+      "Controller": "sfreezer",
+      "File": "olaf/freezer.state"
     }
   ],
 
@@ -545,7 +537,6 @@
         }
       ]
     },
-
     {
       "Name": "CameraServiceCapacity",
       "Actions": [
@@ -567,7 +558,7 @@
           "Params":
           {
             "Controller": "blkio",
-            "Path": "background"
+            "Path": "low"
           }
         }
       ]
@@ -580,7 +571,7 @@
           "Params":
           {
             "Controller": "blkio",
-            "Path": ""
+            "Path": "normal"
           }
         }
       ]
@@ -593,7 +584,7 @@
           "Params":
           {
             "Controller": "blkio",
-            "Path": ""
+            "Path": "high"
           }
         }
       ]
@@ -606,7 +597,7 @@
           "Params":
           {
             "Controller": "blkio",
-            "Path": ""
+            "Path": "top"
           }
         }
       ]
@@ -760,32 +751,6 @@
       ]
     },
     {
-      "Name": "SlowdownThawed",
-      "Actions": [
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "SlowdownState",
-            "Value": "THAWED"
-          }
-        }
-      ]
-    },
-    {
-      "Name": "SlowdownFrozen",
-      "Actions": [
-        {
-          "Name": "SetAttribute",
-          "Params":
-          {
-            "Name": "SlowdownState",
-            "Value": "FROZEN"
-          }
-        }
-      ]
-    },
-    {
       "Name": "GpisSfCpusetJoin",
       "Actions" : [
         {
@@ -825,6 +790,27 @@
       ]
     },
     {
+      "Name": "MidgroundProcess",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "cpuset",
+            "Path": "midground"
+          }
+        },
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "cpu",
+            "Path": "midground"
+          }
+        }
+      ]
+    },
+    {
       "Name": "TopAppUsage",
       "Actions": [
         {
@@ -851,14 +837,53 @@
       ]
     },
     {
-      "Name": "MidgroundProcess",
+      "Name": "SlowdownThawed",
       "Actions": [
         {
-          "Name": "JoinCgroup",
+          "Name": "SetAttribute",
           "Params":
           {
-            "Controller": "cpu",
-            "Path": "midground"
+            "Name": "SlowdownState",
+            "Value": "THAWED"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "SlowdownFrozen",
+      "Actions": [
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "SlowdownState",
+            "Value": "FROZEN"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "DoSomethingOlaf",
+      "Actions": [
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "OlafState",
+            "Value": "FROZEN"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "DoNothingOlaf",
+      "Actions": [
+        {
+          "Name": "SetAttribute",
+          "Params":
+          {
+            "Name": "OlafState",
+            "Value": "THAWED"
           }
         }
       ]
@@ -877,6 +902,14 @@
     {
       "Name": "SCHED_SP_FOREGROUND",
       "Profiles": [ "HighPerformance", "HighIoPriority", "TimerSlackNormal" ]
+    },
+    {
+      "Name": "SCHED_SP_ABNORMAL",
+      "Profiles": [ "HighEnergySaving", "LowIoPriority", "TimerSlackHigh" ]
+    },
+    {
+      "Name": "SCHED_SP_MODERATE",
+      "Profiles": [ "HighEnergySaving", "LowIoPriority", "TimerSlackHigh" ]
     },
     {
       "Name": "SCHED_SP_FOREGROUND_BOOST",
@@ -911,6 +944,14 @@
       "Profiles": [ "HighPerformance", "ProcessCapacityHigh", "HighIoPriority", "TimerSlackNormal", "BackgroundUsage" ]
     },
     {
+      "Name": "CPUSET_SP_ABNORMAL",
+      "Profiles": [ "HighEnergySaving", "ProcessCapacityAbnormal", "LowIoPriority", "TimerSlackHigh" ]
+    },
+    {
+      "Name": "CPUSET_SP_MODERATE",
+      "Profiles": [ "HighEnergySaving", "ProcessCapacityModerate", "LowIoPriority", "TimerSlackHigh" ]
+    },
+    {
       "Name": "CPUSET_SP_FOREGROUND_BOOST",
       "Profiles": [ "SystemServicePerformance", "SystemServiceCapacityHigh", "HighIoPriority", "TimerSlackNormal", "BackgroundUsage" ]
     },
@@ -928,7 +969,7 @@
     },
     {
       "Name": "Dex2OatBootComplete",
-      "Profiles": [ "Dex2oatPerformance", "LowIoPriority", "TimerSlackHigh" ]
+      "Profiles": [ "Dex2oatPerformance", "JoinOlaf", "LowIoPriority", "TimerSlackHigh" ]
     },
     {
       "Name": "Dex2OatBackground",

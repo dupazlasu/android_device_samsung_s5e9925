@@ -1,35 +1,27 @@
-# TWRP Device Tree for Samsung Galaxy A54 5G
+# TWRP Device Tree for Samsung Galaxy S22 Ultra
 
-The Galaxy A54 5G (codenamed _"a54x"_) is an upper-mid-range smartphone from Samsung.
+The Galaxy S22 Ultra (codenamed _"b0s"_) is a flagship smartphones from Samsung.
 
-It was announced and released in March 2023.
+It was announced and released in Febuary 2022.
 
 ## Device specifications
 
-| Feature                      | Specification                                                                  |
-| ---------------------------: | :----------------------------------------------------------------------------- |
-| Chipset                      | Exynos 1380                                                                    |
-| CPU                          | Octa-core (4x2.4 GHz Cortex-A78 & 4x2.0 GHz Cortex-A55)                        |
-| GPU                          | Mali-G68 MP5                                                                   |
-| Memory                       | 6GB / 8GB RAM (LPDDR4X)                                                        |
-| Shipped OS                   | Android 13 (One UI 5.1)                                                        |
-| Storage                      | 128GB / 256GB (UFS 2.2)                                                        |
-| SIM                          | Single SIM (Nano-SIM, eSIM) or Hybrid Dual SIM (Nano-SIM, dual stand-by)       |
-| MicroSD                      | Up to 1TB                                                                      |
-| Battery                      | 5000mAh Li-Po (non-removable), 25W fast charge                                 |
-| Dimensions                   | 158.2 x 76.7 x 8.2 mm (6.23 x 3.02 x 0.32 in)                                  |
-| Display                      | 6.4", 1080 x 2340 pixels, 19.5:9 ratio, Super AMOLED, 120Hz (~403 ppi density) |
-| Rear Camera 1 (IMX766)       | 50 MP, f/1.8, (wide), 1/1.56", 1.0µm, PDAF, OIS                                |
-| Rear Camera 2 (S5K3L6)       | 12 MP, f/2.2, 123˚ (ultrawide), 1.12µm                                         |
-| Rear Camera 3 (GC5035)       | 5 MP, f/2.4, (macro)                                                           |
-| Front Camera (IMX616/S5KGD2) | 32 MP, f/2.2, 26mm (wide), 1/2.8", 0.8µm                                       |
-| Fingerprint                  | Goodix GW9578 (under display, optical)                                         |
-| Sensors                      | Accelerometer, Gyro, Proximity (virtual), Compass, Hall IC, Grip               |
-| Extras                       | Dual speakers, NFC, MST                                                        |
+| Feature                      | Specification                                                                      |
+| ---------------------------: | :----------------------------------------------------------------------------------|
+| Chipset                      | Exynos 2200                                                                        |
+| CPU                          | Octa-core (1x2.8 GHz Cortex S2 & 3x2.52 GHz Cortex-A710 & 4x1.82 GHz Cortex-A510)  |
+| GPU                          | Xclipse 920                                                                        |
+| Memory                       | 8GB/12GB RAM                                                                       |
+| Shipped OS                   | Android 12 (One UI 4.1)                                                            |
+| Storage                      | 128GB (UFS 3.1) 256GB / 512 GB / 1TB (UFS 4.1)                                     |
 
 ## Kernel source 
 
-Available at [https://github.com/BlackMesa123/android_kernel_samsung_s5e8835/tree/sep-15/twrp-12.1](https://github.com/BlackMesa123/android_kernel_samsung_s5e8835/tree/sep-15/twrp-12.1)
+Available at [https://github.com/ExtremeXT/android_kernel_samsung_s5e9925](https://github.com/ExtremeXT/android_kernel_samsung_s5e9925)
+
+## Bugs
+
+- /data decryption in OneUI (works on AOSP)
 
 ## How to build
 
@@ -37,18 +29,17 @@ This device tree was tested and is fully compatible with [minimal-manifest-twrp]
 
 1. Set up the build environment following the instructions [here](https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp/blob/twrp-12.1/README.md#getting-started)
 
-2. In the root folder of the fetched repo, clone the device tree:
+2. In the root folder of the fetched repo:
 
 ```bash
-git clone https://github.com/TeamWin/android_device_samsung_a54x.git -b android-12.1 device/samsung/a54x
+git clone https://github.com/dupazlasu/android_device_samsung_b0s.git -b android-12.1
 ```
 
 3. To build:
 
 ```bash
-export ALLOW_MISSING_DEPENDENCIES=true
 . build/envsetup.sh
-lunch twrp_a54x-eng
+lunch twrp_b0s-eng
 mka recoveryimage
 ```
 
