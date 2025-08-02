@@ -18,6 +18,7 @@ Available at [https://github.com/ExtremeXT/android_kernel_samsung_s5e9925](https
 ## Bugs
 
 - /data decryption
+- haptics
 
 ## How to build
 
