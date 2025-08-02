@@ -1,27 +1,23 @@
-# TWRP Device Tree for Samsung Galaxy S22 Ultra
-
-The Galaxy S22 Ultra (codenamed _"b0s"_) is a flagship smartphones from Samsung.
-
-It was announced and released in Febuary 2022.
+# TWRP Device Tree for Samsung Galaxy devices with Exynos 2200 (s5e9925/erd9925)
 
 ## Device specifications
 
-| Feature                      | Specification                                                                      |
-| ---------------------------: | :----------------------------------------------------------------------------------|
-| Chipset                      | Exynos 2200                                                                        |
-| CPU                          | Octa-core (1x2.8 GHz Cortex S2 & 3x2.52 GHz Cortex-A710 & 4x1.82 GHz Cortex-A510)  |
-| GPU                          | Xclipse 920                                                                        |
-| Memory                       | 8GB/12GB RAM                                                                       |
-| Shipped OS                   | Android 12 (One UI 4.1)                                                            |
-| Storage                      | 128GB (UFS 3.1) 256GB / 512 GB / 1TB (UFS 4.1)                                     |
+| Branding Name                                | Model Number          | Internal Codename    |
+| :------------------------------------------- | :-------------------- | :------------------- |
+| Samsung Galaxy S22 (International)           | SM-S901B   |                r0s              |
+| Samsung Galaxy S22+ (International)          | SM-S906B   |                g0s              |
+| Samsung Galaxy S22 Ultra (International)     | SM-S908B   |                b0s              |
+| Samsung Galaxy S23 FE (TBD) (International)  | SM-S711B   |               r11s              |
 
 ## Kernel source 
 
 Available at [https://github.com/ExtremeXT/android_kernel_samsung_s5e9925](https://github.com/ExtremeXT/android_kernel_samsung_s5e9925)
 
+* Note: The kernel has been compiled with the --recovery flag set to y.
+
 ## Bugs
 
-- /data decryption in OneUI (works on AOSP)
+- /data decryption
 
 ## How to build
 
@@ -29,10 +25,10 @@ This device tree was tested and is fully compatible with [minimal-manifest-twrp]
 
 1. Set up the build environment following the instructions [here](https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp/blob/twrp-12.1/README.md#getting-started)
 
-2. In the root folder of the fetched repo:
+2. In the root folder of the fetched repo, clone the device tree:
 
 ```bash
-git clone https://github.com/dupazlasu/android_device_samsung_b0s.git -b android-12.1
+git clone https://github.com/dupazlasu/android_device_samsung_s5e9925 -b android-12.1 device/samsung/s5e9925
 ```
 
 3. To build:
