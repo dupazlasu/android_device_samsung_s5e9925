@@ -1,6 +1,8 @@
 <!--
     Input:
         manifest.xml
+        gatekeeper_manifest.xml
+        skeymint_v100_manifest.xml
         manifest.xml
 -->
 <manifest version="4.0" type="framework">
@@ -34,6 +36,59 @@
         </interface>
         <fqname>@1.0::ISensorManager/default</fqname>
     </hal>
+    <hal format="aidl" override="true">
+        <name>android.hardware.security.keymint</name>
+        <interface>
+            <name>IKeyMintDevice</name>
+            <instance>default</instance>
+            <instance>strongbox</instance>
+        </interface>
+        <fqname>IKeyMintDevice/default</fqname>
+        <fqname>IKeyMintDevice/strongbox</fqname>
+    </hal>
+    <hal format="aidl" override="true">
+        <name>android.hardware.security.secureclock</name>
+        <interface>
+            <name>ISecureClock</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>ISecureClock/default</fqname>
+    </hal>
+    <hal format="hidl" override="true">
+        <name>android.hardware.weaver</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IWeaver</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" override="true">
+        <name>android.hardware.security.sharedsecret</name>
+        <interface>
+            <name>ISharedSecret</name>
+            <instance>default</instance>
+            <instance>strongbox</instance>
+        </interface>
+        <fqname>ISharedSecret/default</fqname>
+        <fqname>ISharedSecret/strongbox</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>vendor.samsung.hardware.keymint</name>
+        <interface>
+            <name>ISehKeyMintExtension</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>ISehKeyMintExtension/default</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>vendor.samsung.hardware.keymint</name>
+        <interface>
+            <name>ISehKeyMintFactory</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>ISehKeyMintFactory/default</fqname>
+    </hal>
     <hal format="hidl">
         <name>android.hidl.manager</name>
         <transport>hwbinder</transport>
@@ -63,6 +118,16 @@
             <instance>default</instance>
         </interface>
         <fqname>@1.0::ITokenManager/default</fqname>
+    </hal>
+    <hal format="hidl" override="true">
+        <name>android.hardware.gatekeeper</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IGatekeeper</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IGatekeeper/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.system.net.netd</name>
@@ -96,3 +161,4 @@
         <version>32</version>
     </system-sdk>
 </manifest>
+
