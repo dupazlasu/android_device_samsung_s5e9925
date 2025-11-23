@@ -1,6 +1,15 @@
 on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
     install_keyring
 
+on early-fs
+    chown system system /dev/k250a
+    chmod 0660 /dev/k250a
+    chown system system /dev/ssp
+    chmod 0660 /dev/ssp
+
+on post-fs-data
+    mkdir /data/vendor/gatekeeper 0770 system system
+
 on fs
     wait /dev/block/by-name/efs
     mount ext4 /dev/block/by-name/efs /mnt/vendor/efs nosuid nodev noatime noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic
@@ -18,12 +27,16 @@ on property:hwservicemanager.ready=true && property:crypto.ready=1
     wait_for_prop vendor.tzts_daemon Ready
     start vendor.keymint-default
     start vendor.gatekeeper-1-0
+    start vendor.keymint-1-0_strongbox
+    start hermesd
 
 on property:twrp.all.users.decrypted=true
     stop tz_service
     stop tzts_service
     stop vendor.keymint-default
     stop vendor.gatekeeper-1-0
+    stop vendor.keymint-1-0_strongbox
+    stop hermesd
     umount /mnt/vendor/efs
     umount /efs
 
@@ -57,6 +70,13 @@ service vendor.gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-ser
     seclabel u:r:recovery:s0
 
 service vendor.keymint-1-0_strongbox /vendor/bin/hw/android.hardware.security.keymint@1.0_strongbox-service
+    user system
+    group system drmrpc
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
+    disabled
+    seclabel u:r:recovery:s0
+
+service hermesd /vendor/bin/hermesd /data/vendor/gatekeeper
     user system
     group system drmrpc
     setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin

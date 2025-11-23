@@ -39,6 +39,13 @@ if mount -o ro "/dev/block/mapper/vendor" "/tmp/vendor"; then
   cp -p "/tmp/vendor/tee/00000000-0000-0000-0000-474154454b45" \
     "/vendor/tee/00000000-0000-0000-0000-474154454b45";
 
+  cp -p "/tmp/vendor/tee/00000000-0000-0000-0000-534258505859" \
+    "/vendor/tee/00000000-0000-0000-0000-534258505859";
+
+  # Hardware Vault TA (hermes)
+  cp -p "/tmp/vendor/tee/00000000-0000-0000-0000-487641557457" \
+    "/vendor/tee/00000000-0000-0000-0000-487641557457";
+
   umount "/tmp/vendor";
 fi
 
