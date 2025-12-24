@@ -4,10 +4,10 @@
 
 | Branding Name                                | Model Number          | Internal Codename    |
 | :------------------------------------------- | :-------------------- | :------------------- |
-| Samsung Galaxy S22 (International)           | SM-S901B   |                r0s              |
-| Samsung Galaxy S22+ (International)          | SM-S906B   |                g0s              |
-| Samsung Galaxy S22 Ultra (International)     | SM-S908B   |                b0s              |
-| Samsung Galaxy S23 FE (TBD) (International)  | SM-S711B   |               r11s              |
+| Samsung Galaxy S22 (International)           | SM-S901B              |         r0s          |
+| Samsung Galaxy S22+ (International)          | SM-S906B              |         g0s          |
+| Samsung Galaxy S22 Ultra (International)     | SM-S908B              |         b0s          |
+
 
 ## Kernel source 
 
