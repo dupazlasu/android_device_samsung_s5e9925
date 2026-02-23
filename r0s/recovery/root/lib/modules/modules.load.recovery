@@ -8,14 +8,12 @@ sec_debug_mode.ko
 ems.ko
 sec_mpam.ko
 sec_mpam_sysfs.ko
-qcom_ipc_logging.ko
 zsmalloc.ko
 lzo.ko
 lzo-rle.ko
 ssg.ko
 blk-sec-stats.ko
 irq-gic-v3-vh.ko
-mhi.ko
 phy-exynos-mipi-dsim.ko
 phy-exynos-mipi.ko
 phy-exynos-usbdrd-super.ko
@@ -30,7 +28,6 @@ fb.ko
 clk-exynos-audss.ko
 pl330.ko
 samsung-dma.ko
-qmi_helpers.ko
 dss.ko
 debug-snapshot-debug-kinfo.ko
 debug-snapshot-sfrdump.ko
@@ -129,14 +126,6 @@ scsi_srpmb.ko
 spidev.ko
 spi-s3c64xx.ko
 smsc.ko
-cnss2.ko
-cnss_utils.ko
-wlan_firmware_service.ko
-cnss_plat_ipc_qmi_svc.ko
-cnss_nl.ko
-cnss_prealloc.ko
-asix.ko
-ax88179_178a.ko
 smsc75xx.ko
 smsc95xx.ko
 cdc_mbim.ko
@@ -189,8 +178,6 @@ exynos_thermal.ko
 gpu_cooling.ko
 exynos_amb_control.ko
 softdog.ko
-bcm43xx.ko
-btpower.ko
 freq-qos-tracer.ko
 exynos-acme.ko
 exynos-dsufreq.ko
@@ -235,7 +222,6 @@ nanohub.ko
 sensors_core.ko
 exynos_devfreq.ko
 s2mps25_adc.ko
-npu.ko
 sec_pm_debug.ko
 sec_thermistor.ko
 sec_pm_cpufreq.ko
@@ -305,7 +291,6 @@ input-cs40l26-i2c.ko
 sec-direct-charger.ko
 sec_pd.ko
 sec-battery.ko
-mstdrv.ko
 pdic_max77705.ko
 stm_ts_spi.ko
 isg6320.ko
@@ -329,9 +314,4 @@ snd-soc-samsung-slif.ko
 rainbow_prince.ko
 sec_audio_sysfs.ko
 sec_audio_debug.ko
-tcp_westwood.ko
-tcp_htcp.ko
 cfg80211.ko
-qrtr.ko
-ns.ko
-qrtr-mhi.ko

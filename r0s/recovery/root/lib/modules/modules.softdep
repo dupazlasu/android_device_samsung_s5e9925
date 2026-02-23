@@ -1,6 +1,5 @@
 # Soft dependencies extracted from modules themselves.
 softdep phy_exynos_usbdrd_super post:dwc3-exynos-usb
-softdep qmi_helpers pre: qrtr
 softdep exynos_pd pre: clk_exynos
 softdep exynos_pd_el3 pre: exynos-el2
 softdep xperf pre: exynos-acme
