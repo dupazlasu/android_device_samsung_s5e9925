@@ -155,13 +155,13 @@ i3c-hci-exynos.ko
 videobuf2-dma-sg.ko
 exynos_mfc.ko
 fimc-is.ko
-is-cis-gh1.ko
+is-cis-3j1.ko
+is-cis-3k1.ko
+is-cis-2la.ko
+is-cis-2ld.ko
 is-cis-gn3.ko
-is-cis-hm3.ko
-is-cis-imx563.ko
-is-cis-imx754.ko
+is-cis-imx374.ko
 is-actuator-ak737x.ko
-is-laser-af-vl53l5.ko
 is-flash-s2mpb02-i2c.ko
 pablo-smc.ko
 is-device-eeprom.ko
@@ -178,7 +178,6 @@ exynos_thermal.ko
 gpu_cooling.ko
 exynos_amb_control.ko
 softdog.ko
-bcm43xx.ko
 freq-qos-tracer.ko
 exynos-acme.ko
 exynos-dsufreq.ko
@@ -223,7 +222,6 @@ nanohub.ko
 sensors_core.ko
 exynos_devfreq.ko
 s2mps25_adc.ko
-npu.ko
 sec_pm_debug.ko
 sec_thermistor.ko
 sec_pm_cpufreq.ko
@@ -237,8 +235,7 @@ sec_class.ko
 sec_bootstat.ko
 sec_argos.ko
 pmic_class.ko
-mcd-panel-s6e3hae.ko
-mcd-panel-s6e3hae_rainbow_b0.ko
+mcd-panel-s6e3fac_rainbow_g0.ko
 dev_ril_bridge.ko
 mcd-panel.ko
 max77705_charger.ko
@@ -282,7 +279,7 @@ abc_hub.ko
 sec_abc_detect_conn.ko
 pca9468_charger.ko
 s2dos05-regulator.ko
-vl53l5.ko
+pca9481_charger.ko
 hall_ic.ko
 hall_ic_notifier.ko
 sb-mfc.ko
@@ -291,12 +288,9 @@ p9320_charger.ko
 repeater_tusb2e11_module.ko
 mfd_max77705.ko
 input-cs40l26-i2c.ko
-uwb.ko
 sec-direct-charger.ko
 sec_pd.ko
 sec-battery.ko
-wez02.ko
-mstdrv.ko
 pdic_max77705.ko
 stm_ts_spi.ko
 isg6320.ko

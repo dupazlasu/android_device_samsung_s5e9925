@@ -14,10 +14,7 @@ softdep mcd_panel_samsung_drv pre: mcd-panel
 softdep dwc3_exynos_usb pre:phy-exynos-usbdrd-super
 softdep sec_ts pre: acpm-mfd-bus
 softdep fimc_is pre: cmupmucal clk_exynos exynos-pmu-if pinctrl-samsung-core pcie-exynos-rc phy-exynos-mipi samsung-iommu samsung-iommu-group
-softdep is_cis_imx563 pre: fimc-is
-softdep is_cis_imx754 pre: fimc-is
 softdep is_actuator_ak737x pre: fimc-is
-softdep is_laser_af_vl53l5 pre: fimc-is
 softdep is_flash_s2mpb02_i2c pre: fimc-is
 softdep is_device_eeprom pre: fimc-is
 softdep tsmux pre: repeater
@@ -29,6 +26,5 @@ softdep sec_pm_debug pre: acpm-mfd-bus
 softdep sec_hard_reset_hook pre: pinctrl-samsung-core
 softdep mcd_panel pre: s2dos05-regulator i2c-exynos5
 softdep tsl2510 pre: sensors_core
-softdep vl53l5 pre: s2mpb02-regulator
 softdep sb_mfc pre: max77705_charger
 softdep stm_ts_spi pre: acpm-mfd-bus
